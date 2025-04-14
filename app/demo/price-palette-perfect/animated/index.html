@@ -1,0 +1,215 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Animated Pricing Table</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>Animated Pricing</h1>
+      <p>Simple pricing with no hidden fees. Save 20% with yearly billing.</p>
+    </div>
+
+    <div class="billing-toggle">
+      <button class="toggle-option active" data-interval="monthly">Monthly</button>
+      <button class="toggle-option" data-interval="yearly">Yearly <span class="discount">-20%</span></button>
+      <div class="toggle-slider"></div>
+    </div>
+
+    <div class="pricing-table">
+      <div class="pricing-card" data-aos="fade-up" data-aos-delay="100">
+        <div class="card-header">
+          <h3>Basic</h3>
+          <p>Everything you need to get started.</p>
+          <div class="price" data-monthly="$10" data-yearly="$8">
+            <span class="amount">$10</span>
+            <span class="period">/month</span>
+          </div>
+        </div>
+        <div class="card-content">
+          <ul class="features">
+            <li class="feature">
+              <span class="check-icon">✓</span>
+              <span>Core features</span>
+            </li>
+            <li class="feature">
+              <span class="check-icon">✓</span>
+              <span>5 projects</span>
+            </li>
+            <li class="feature inactive">
+              <span class="cross-icon">✕</span>
+              <span>Team collaboration</span>
+            </li>
+            <li class="feature inactive">
+              <span class="cross-icon">✕</span>
+              <span>Analytics dashboard</span>
+            </li>
+            <li class="feature inactive">
+              <span class="cross-icon">✕</span>
+              <span>API access</span>
+            </li>
+            <li class="feature inactive">
+              <span class="cross-icon">✕</span>
+              <span>Custom domain</span>
+            </li>
+            <li class="feature inactive">
+              <span class="cross-icon">✕</span>
+              <span>Advanced security</span>
+            </li>
+          </ul>
+        </div>
+        <div class="card-footer">
+          <button class="button">Get started</button>
+        </div>
+      </div>
+
+      <div class="pricing-card popular" data-aos="fade-up" data-aos-delay="200">
+        <div class="popular-badge">MOST POPULAR</div>
+        <div class="card-header">
+          <h3>Plus</h3>
+          <p>For teams that need to do more.</p>
+          <div class="price" data-monthly="$25" data-yearly="$20">
+            <span class="amount">$25</span>
+            <span class="period">/month</span>
+          </div>
+        </div>
+        <div class="card-content">
+          <ul class="features">
+            <li class="feature">
+              <span class="check-icon popular">✓</span>
+              <span>Core features</span>
+            </li>
+            <li class="feature">
+              <span class="check-icon popular">✓</span>
+              <span>5 projects</span>
+            </li>
+            <li class="feature">
+              <span class="check-icon popular">✓</span>
+              <span>Team collaboration</span>
+            </li>
+            <li class="feature">
+              <span class="check-icon popular">✓</span>
+              <span>Analytics dashboard</span>
+            </li>
+            <li class="feature inactive">
+              <span class="cross-icon">✕</span>
+              <span>API access</span>
+            </li>
+            <li class="feature inactive">
+              <span class="cross-icon">✕</span>
+              <span>Custom domain</span>
+            </li>
+            <li class="feature inactive">
+              <span class="cross-icon">✕</span>
+              <span>Advanced security</span>
+            </li>
+          </ul>
+        </div>
+        <div class="card-footer">
+          <button class="button popular-button">Get started</button>
+        </div>
+      </div>
+
+      <div class="pricing-card" data-aos="fade-up" data-aos-delay="300">
+        <div class="card-header">
+          <h3>Pro</h3>
+          <p>For professional teams with advanced needs.</p>
+          <div class="price" data-monthly="$50" data-yearly="$40">
+            <span class="amount">$50</span>
+            <span class="period">/month</span>
+          </div>
+        </div>
+        <div class="card-content">
+          <ul class="features">
+            <li class="feature">
+              <span class="check-icon">✓</span>
+              <span>Core features</span>
+            </li>
+            <li class="feature">
+              <span class="check-icon">✓</span>
+              <span>5 projects</span>
+            </li>
+            <li class="feature">
+              <span class="check-icon">✓</span>
+              <span>Team collaboration</span>
+            </li>
+            <li class="feature">
+              <span class="check-icon">✓</span>
+              <span>Analytics dashboard</span>
+            </li>
+            <li class="feature">
+              <span class="check-icon">✓</span>
+              <span>API access</span>
+            </li>
+            <li class="feature">
+              <span class="check-icon">✓</span>
+              <span>Custom domain</span>
+            </li>
+            <li class="feature">
+              <span class="check-icon">✓</span>
+              <span>Advanced security</span>
+            </li>
+          </ul>
+        </div>
+        <div class="card-footer">
+          <button class="button">Get started</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const toggleOptions = document.querySelectorAll('.toggle-option');
+      const toggleSlider = document.querySelector('.toggle-slider');
+      const prices = document.querySelectorAll('.price');
+      
+      // Initialize with animations
+      document.querySelectorAll('.pricing-card').forEach((card, index) => {
+        setTimeout(() => {
+          card.classList.add('show');
+        }, 100 * index);
+      });
+      
+      toggleOptions.forEach(option => {
+        option.addEventListener('click', function() {
+          const interval = this.dataset.interval;
+          
+          // Update toggle state
+          toggleOptions.forEach(opt => opt.classList.remove('active'));
+          this.classList.add('active');
+          
+          // Move the slider
+          if (interval === 'yearly') {
+            toggleSlider.style.transform = 'translateX(100%)';
+          } else {
+            toggleSlider.style.transform = 'translateX(0)';
+          }
+          
+          // Update prices with animation
+          prices.forEach(price => {
+            const currentPrice = price.querySelector('.amount');
+            const newPrice = price.dataset[interval];
+            const period = interval === 'yearly' ? '/month, billed yearly' : '/month';
+            
+            // Animate price change
+            currentPrice.style.transform = 'translateY(-20px)';
+            currentPrice.style.opacity = '0';
+            
+            setTimeout(() => {
+              currentPrice.textContent = newPrice;
+              price.querySelector('.period').textContent = period;
+              currentPrice.style.transform = 'translateY(0)';
+              currentPrice.style.opacity = '1';
+            }, 200);
+          });
+        });
+      });
+    });
+  </script>
+</body>
+</html>

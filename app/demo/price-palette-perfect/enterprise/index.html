@@ -1,0 +1,163 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Enterprise Comparison Table</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>Enterprise Comparison</h1>
+      <p>Detailed feature comparison for enterprise needs.</p>
+    </div>
+
+    <div class="comparison-wrapper">
+      <table class="comparison-table">
+        <thead>
+          <tr>
+            <th></th>
+            <th>
+              <div class="plan-name">Basic</div>
+              <div class="plan-price">$19</div>
+              <div class="plan-period">per user/month</div>
+              <button class="button button-outline">Free trial</button>
+            </th>
+            <th class="highlighted-column">
+              <div class="plan-name">Standard</div>
+              <div class="plan-price">$49</div>
+              <div class="plan-period">per user/month</div>
+              <button class="button button-filled">Free trial</button>
+            </th>
+            <th>
+              <div class="plan-name">Premium</div>
+              <div class="plan-price">$99</div>
+              <div class="plan-period">per user/month</div>
+              <button class="button button-outline">Contact sales</button>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="category-row">
+            <td colspan="4">Core Features</td>
+          </tr>
+          <tr>
+            <td>Number of users</td>
+            <td>5</td>
+            <td class="highlighted-column">20</td>
+            <td>Unlimited</td>
+          </tr>
+          <tr>
+            <td>
+              <div class="feature-with-tooltip">
+                Storage capacity
+                <span class="tooltip-icon" title="Storage for all your documents and files">ⓘ</span>
+              </div>
+            </td>
+            <td>10 GB</td>
+            <td class="highlighted-column">100 GB</td>
+            <td>1 TB</td>
+          </tr>
+          <tr>
+            <td>Projects</td>
+            <td>3</td>
+            <td class="highlighted-column">10</td>
+            <td>Unlimited</td>
+          </tr>
+          <tr class="category-row">
+            <td colspan="4">Security &amp; Compliance</td>
+          </tr>
+          <tr>
+            <td>Two-factor authentication</td>
+            <td><span class="check">✓</span></td>
+            <td class="highlighted-column"><span class="check">✓</span></td>
+            <td><span class="check">✓</span></td>
+          </tr>
+          <tr>
+            <td>
+              <div class="feature-with-tooltip">
+                Single sign-on (SSO)
+                <span class="tooltip-icon" title="Authenticate using your organization's identity provider">ⓘ</span>
+              </div>
+            </td>
+            <td><span class="cross">✕</span></td>
+            <td class="highlighted-column"><span class="check">✓</span></td>
+            <td><span class="check">✓</span></td>
+          </tr>
+          <tr>
+            <td>
+              <div class="feature-with-tooltip">
+                Advanced security controls
+                <span class="tooltip-icon" title="Custom security policies, IP restrictions, and audit logs">ⓘ</span>
+              </div>
+            </td>
+            <td><span class="cross">✕</span></td>
+            <td class="highlighted-column"><span class="cross">✕</span></td>
+            <td><span class="check">✓</span></td>
+          </tr>
+          <tr class="category-row">
+            <td colspan="4">Support</td>
+          </tr>
+          <tr>
+            <td>Support level</td>
+            <td>Community</td>
+            <td class="highlighted-column">Business hours</td>
+            <td>24/7 dedicated</td>
+          </tr>
+          <tr>
+            <td>
+              <div class="feature-with-tooltip">
+                Uptime SLA
+                <span class="tooltip-icon" title="Guaranteed system availability">ⓘ</span>
+              </div>
+            </td>
+            <td>99%</td>
+            <td class="highlighted-column">99.9%</td>
+            <td>99.99%</td>
+          </tr>
+          <tr>
+            <td>Custom success manager</td>
+            <td><span class="cross">✕</span></td>
+            <td class="highlighted-column"><span class="cross">✕</span></td>
+            <td><span class="check">✓</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <script>
+    // Simple tooltip functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      const tooltips = document.querySelectorAll('.tooltip-icon');
+      tooltips.forEach(tooltip => {
+        tooltip.addEventListener('mouseover', function() {
+          const title = this.getAttribute('title');
+          this.setAttribute('data-title', title);
+          this.removeAttribute('title');
+          
+          const tooltipDiv = document.createElement('div');
+          tooltipDiv.className = 'tooltip';
+          tooltipDiv.textContent = title;
+          document.body.appendChild(tooltipDiv);
+          
+          const rect = this.getBoundingClientRect();
+          tooltipDiv.style.top = rect.top - tooltipDiv.offsetHeight - 10 + 'px';
+          tooltipDiv.style.left = rect.left - (tooltipDiv.offsetWidth / 2) + (this.offsetWidth / 2) + 'px';
+        });
+        
+        tooltip.addEventListener('mouseout', function() {
+          const title = this.getAttribute('data-title');
+          this.setAttribute('title', title);
+          this.removeAttribute('data-title');
+          
+          const tooltips = document.querySelectorAll('.tooltip');
+          tooltips.forEach(t => t.remove());
+        });
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,153 @@
+
+/* Global styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+body {
+  background-color: #f9fafb;
+  color: #1f2937;
+  line-height: 1.5;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 3rem 1rem;
+}
+
+.main-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.main-header h1 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.main-header p {
+  font-size: 1.25rem;
+  color: #6b7280;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Template Grid */
+.template-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.template-card {
+  text-decoration: none;
+  color: #1f2937;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  background-color: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.template-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+}
+
+.card-preview {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  position: relative;
+  background-color: #f3f4f6;
+}
+
+.preview-image {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
+}
+
+/* Unique colorful backgrounds for each template type */
+.preview-modern {
+  background: linear-gradient(135deg, #4f46e5, #818cf8);
+}
+
+.preview-gradient {
+  background: linear-gradient(135deg, #6366f1, #ec4899);
+}
+
+.preview-minimalist {
+  background: linear-gradient(135deg, #1e293b, #475569);
+}
+
+.preview-card {
+  background: linear-gradient(135deg, #8b5cf6, #d946ef);
+}
+
+.preview-animated {
+  background: linear-gradient(135deg, #0ea5e9, #22d3ee);
+}
+
+.preview-simple {
+  background: linear-gradient(135deg, #10b981, #34d399);
+}
+
+.preview-colorful {
+  background: linear-gradient(135deg, #f97316, #fb923c);
+}
+
+.preview-enterprise {
+  background: linear-gradient(135deg, #4b5563, #6b7280);
+}
+
+.template-card:hover .preview-image {
+  transform: scale(1.05);
+}
+
+.card-info {
+  padding: 1.5rem;
+}
+
+.card-info h3 {
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.card-info p {
+  color: #6b7280;
+  font-size: 0.875rem;
+}
+
+.main-footer {
+  margin-top: 4rem;
+  text-align: center;
+  color: #6b7280;
+}
+
+.copyright {
+  margin-top: 1rem;
+  font-size: 0.875rem;
+}
+
+@media (max-width: 768px) {
+  .template-grid {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1.5rem;
+  }
+  
+  .card-preview {
+    height: 150px;
+  }
+}
